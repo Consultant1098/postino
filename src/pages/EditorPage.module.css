@@ -3,10 +3,10 @@
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
-  animation: fadeIn 0.35s ease both;
+  animation: fadeIn 0.3s ease both;
 }
 
-@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 
 .workspace {
   display: grid;
@@ -21,17 +21,51 @@
     grid-template-columns: 1fr;
     overflow-y: auto;
   }
+  .rightCol { min-height: auto; }
 }
 
+/* ── Left column: editor ── */
 .leftCol {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-right: 1px solid var(--line-md);
 }
 
+/* ── Right column: preview & output ── */
 .rightCol {
   display: flex;
   flex-direction: column;
   background: var(--bg-1);
+  overflow: hidden;
+}
+
+.rightHead {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-1);
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.rightTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+
+.rightSub {
+  font-size: 11px;
+  color: var(--t5);
+}
+
+.rightBody {
+  flex: 1;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }

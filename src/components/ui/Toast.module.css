@@ -1,28 +1,30 @@
 .toast {
   position: fixed;
-  bottom: 24px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-3);
-  border: 1px solid var(--line-md);
+  border: 1px solid var(--line-hi);
   color: var(--t1);
   font-size: 13px;
   font-weight: 400;
   padding: 10px 20px;
-  border-radius: var(--r);
+  border-radius: var(--r-lg);
   z-index: 9999;
-  max-width: 400px;
+  max-width: 420px;
   text-align: center;
   letter-spacing: 0.01em;
-  animation: slideUp 0.25s var(--ease) both;
-  backdrop-filter: blur(12px);
+  animation: slideUp 0.28s var(--ease) both;
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   pointer-events: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.04);
 }
 
-.ok  { border-color: var(--ok-line);  }
-.err { border-color: var(--err-line); }
+.ok  { border-color: var(--ok-line);  color: var(--ok); }
+.err { border-color: var(--err-line); color: var(--err); }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }

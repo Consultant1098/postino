@@ -8,22 +8,41 @@
   font-family: var(--font);
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s, opacity 0.15s, transform 0.1s;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s, box-shadow 0.15s;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:disabled { opacity: 0.38; cursor: not-allowed; }
 .btn:active:not(:disabled) { transform: scale(0.98); }
 
 /* Variants */
-.primary  { background: var(--accent); color: #1A1200; }
-.primary:hover:not(:disabled)  { background: #F0C55C; }
+.primary {
+  background: linear-gradient(160deg, var(--accent-hi), var(--accent));
+  color: rgba(12,8,0,0.88);
+  box-shadow: 0 2px 10px rgba(237,184,64,0.18);
+}
+.primary:hover:not(:disabled) {
+  opacity: 0.9;
+  box-shadow: 0 4px 18px rgba(237,184,64,0.28);
+}
 
-.ghost    { background: transparent; border: 1px solid var(--line-md); color: var(--t2); }
-.ghost:hover:not(:disabled)    { background: var(--bg-3); border-color: var(--line-hi); color: var(--t1); }
+.ghost {
+  background: transparent;
+  border: 1px solid var(--line-md);
+  color: var(--t2);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--bg-3);
+  border-color: var(--line-hi);
+  color: var(--t1);
+}
 
-.danger   { background: var(--err-bg); border: 1px solid var(--err-line); color: var(--err); }
-.danger:hover:not(:disabled)   { background: rgba(248,113,113,0.14); }
+.danger {
+  background: var(--err-bg);
+  border: 1px solid var(--err-line);
+  color: var(--err);
+}
+.danger:hover:not(:disabled) { background: rgba(239,68,68,0.12); }
 
 /* Sizes */
 .sm { height: 28px; padding: 0 12px; font-size: 12px; }
@@ -31,15 +50,15 @@
 .lg { height: 44px; padding: 0 24px; font-size: 14px; }
 
 /* Pill shape */
-.pill { border-radius: 20px; }
+.pill { border-radius: var(--r-full); }
 
 .spinner {
   width: 12px;
   height: 12px;
-  border: 2px solid rgba(26,18,0,0.3);
-  border-top-color: currentColor;
+  border: 1.8px solid rgba(12,8,0,0.25);
+  border-top-color: rgba(12,8,0,0.8);
   border-radius: 50%;
-  animation: spin 0.6s linear infinite;
+  animation: spin 0.65s linear infinite;
   flex-shrink: 0;
 }
 

@@ -1,79 +1,133 @@
-.wrap { padding: 16px 16px 0; }
+.wrap {
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* ── Section header ── */
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 14px 20px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-1);
+}
 
 .sectionLabel {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--t4);
-  margin-bottom: 12px;
+  color: var(--t3);
 }
 
+.sectionHint {
+  font-size: 10.5px;
+  color: var(--t5);
+}
+
+/* ── LinkedIn card shell ── */
 .card {
+  margin: 16px;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #e0dfdc;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  border: 1px solid #dddad6;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.06),
+    0 4px 16px rgba(0,0,0,0.06);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* ── Post header ── */
 .head {
-  padding: 12px 14px 8px;
+  padding: 13px 16px 8px;
   display: flex;
   gap: 10px;
   align-items: flex-start;
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1A1612, #3D3730);
+  background: linear-gradient(135deg, #1D1610, #3D3020);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
   color: #E8B84B;
   flex-shrink: 0;
+  border: 2px solid rgba(0,0,0,0.06);
 }
 
-.name { font-size: 14px; font-weight: 600; color: #191919; }
+.meta { display: flex; flex-direction: column; gap: 1px; }
 
-.degree { font-weight: 400; color: #aaa; }
-
-.sub  { font-size: 12px; color: #777; margin-top: 1px; }
-.time { font-size: 12px; color: #999; margin-top: 1px; }
-
-.body {
-  padding: 0 14px 14px;
+.name {
   font-size: 14px;
-  line-height: 1.65;
+  font-weight: 600;
+  color: rgba(0,0,0,0.9);
+  line-height: 1.3;
+}
+.degree { font-weight: 400; color: #999; font-size: 13px; }
+
+.sub  { font-size: 12px; color: #666; margin-top: 1px; }
+.time { font-size: 11.5px; color: #999; margin-top: 1px; }
+
+/* ── Post body ── */
+.body {
+  padding: 0 16px 14px;
+  font-size: 14px;
+  line-height: 1.7;
   min-height: 52px;
 }
 
-.text  { color: #191919; white-space: pre-wrap; word-break: break-word; }
-.empty { color: #ccc; font-style: italic; font-size: 13px; }
-
-.seeMore {
-  margin: 0 14px 10px;
-  font-size: 12px;
-  color: #999;
-  padding-top: 6px;
-  border-top: 1px dashed #e0dfdc;
+.text  {
+  color: rgba(0,0,0,0.88);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.empty {
+  color: #ccc;
   font-style: italic;
+  font-size: 13px;
 }
 
+/* ── See more indicator ── */
+.seeMore {
+  margin: 0 16px 10px;
+  font-size: 12px;
+  color: #aaa;
+  padding: 7px 0 5px;
+  border-top: 1px dashed #e8e6e2;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.seeMore::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+/* ── Action bar ── */
 .actions {
-  border-top: 1px solid #e8e7e3;
-  padding: 4px 14px;
+  border-top: 1px solid #ece9e4;
+  padding: 2px 8px;
   display: flex;
 }
 
 .action {
   flex: 1;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   font-size: 12px;
   font-weight: 600;
   color: #666;
@@ -83,3 +137,5 @@
   transition: background 0.1s;
 }
 .action:hover { background: #f5f5f5; color: #333; }
+
+.actionIcon { font-size: 13px; }
