@@ -1,0 +1,45 @@
+:root {
+  --bg:          #080809;
+  --bg-1:        #0F0F11;
+  --bg-2:        #161618;
+  --bg-3:        #1E1E21;
+  --bg-4:        #28282C;
+
+  --line:        rgba(255,255,255,0.06);
+  --line-md:     rgba(255,255,255,0.10);
+  --line-hi:     rgba(255,255,255,0.18);
+
+  --t1:          rgba(255,255,255,0.92);
+  --t2:          rgba(255,255,255,0.55);
+  --t3:          rgba(255,255,255,0.30);
+  --t4:          rgba(255,255,255,0.14);
+
+  --accent:      #E8B84B;
+  --accent-dim:  #C49A38;
+  --accent-bg:   rgba(232,184,75,0.08);
+  --accent-line: rgba(232,184,75,0.22);
+
+  --ok:          #4ADE80;
+  --ok-bg:       rgba(74,222,128,0.08);
+  --ok-line:     rgba(74,222,128,0.22);
+
+  --err:         #F87171;
+  --err-bg:      rgba(248,113,113,0.08);
+  --err-line:    rgba(248,113,113,0.22);
+
+  --warn:        #FBBF24;
+  --warn-bg:     rgba(251,191,36,0.08);
+
+  --r:           6px;
+  --r-lg:        12px;
+  --r-xl:        18px;
+
+  --font:        'Geist', -apple-system, sans-serif;
+  --font-disp:   'Instrument Serif', Georgia, serif;
+  --font-mono:   'Geist Mono', monospace;
+
+  --ease:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-std:    cubic-bezier(0.4, 0, 0.2, 1);
+
+  --topbar-h:    52px;
+}

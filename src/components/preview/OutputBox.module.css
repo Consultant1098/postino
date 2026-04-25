@@ -1,0 +1,58 @@
+.wrap { padding: 0 16px 16px; }
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--t4);
+  margin-bottom: 10px;
+  margin-top: 16px;
+}
+
+.box {
+  font-size: 13px;
+  line-height: 1.75;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 14px;
+  min-height: 80px;
+  word-break: break-word;
+}
+
+.text {
+  white-space: pre-wrap;
+  color: var(--t2);
+  font-family: var(--font-mono);
+}
+
+.empty {
+  color: var(--t4);
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.copyBtn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  border: 1px solid var(--line-md);
+  border-radius: var(--r);
+  color: var(--t2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
+}
+.copyBtn:hover:not(:disabled) { border-color: var(--accent-line); color: var(--accent); background: var(--accent-bg); }
+.copyBtn:disabled { opacity: 0.35; cursor: not-allowed; }
+.copyBtn.copied   { border-color: var(--ok-line); color: var(--ok); background: var(--ok-bg); }

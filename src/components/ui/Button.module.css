@@ -1,0 +1,46 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: var(--r);
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s, transform 0.1s;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:active:not(:disabled) { transform: scale(0.98); }
+
+/* Variants */
+.primary  { background: var(--accent); color: #1A1200; }
+.primary:hover:not(:disabled)  { background: #F0C55C; }
+
+.ghost    { background: transparent; border: 1px solid var(--line-md); color: var(--t2); }
+.ghost:hover:not(:disabled)    { background: var(--bg-3); border-color: var(--line-hi); color: var(--t1); }
+
+.danger   { background: var(--err-bg); border: 1px solid var(--err-line); color: var(--err); }
+.danger:hover:not(:disabled)   { background: rgba(248,113,113,0.14); }
+
+/* Sizes */
+.sm { height: 28px; padding: 0 12px; font-size: 12px; }
+.md { height: 36px; padding: 0 18px; font-size: 13px; }
+.lg { height: 44px; padding: 0 24px; font-size: 14px; }
+
+/* Pill shape */
+.pill { border-radius: 20px; }
+
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(26,18,0,0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

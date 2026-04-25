@@ -1,0 +1,108 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+@media (max-width: 800px) {
+  .page { grid-template-columns: 1fr; }
+  .left { display: none; }
+}
+
+/* ── Left: brand panel ── */
+.left {
+  background: var(--bg-1);
+  border-right: 1px solid var(--line);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoRing {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--line-hi);
+  background: var(--bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoP {
+  font-family: var(--font-disp);
+  font-size: 18px;
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1;
+}
+
+.logoName {
+  font-family: var(--font-disp);
+  font-size: 20px;
+  color: var(--t1);
+  letter-spacing: -0.01em;
+}
+
+.tagline { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.headline {
+  font-family: var(--font-disp);
+  font-size: 44px;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.headline em { color: var(--accent); font-style: italic; }
+
+.body {
+  font-size: 15px;
+  color: var(--t2);
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.featureIcon { font-size: 16px; }
+
+.featureLabel {
+  font-size: 13px;
+  color: var(--t2);
+}
+
+/* ── Right: form panel ── */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--bg);
+  animation: slideUp 0.5s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
