@@ -26,28 +26,49 @@ export function toItalic(text) {
 
 export function applyFormatting(text) {
   return text
+    // Bold: **text**
     .replace(/\*\*(.+?)\*\*/gs, (_, t) => toBold(t))
-    .replace(/\*([^*\n]+?)\*/g,  (_, t) => toItalic(t))
-    .replace(/^[-–]\s+/gm, '• ')
+
+    // Italic: *text*
+    .replace(/\*([^*\n]+?)\*/g, (_, t) => toItalic(t))
+
+    // Bullets with leading whitespace/tabs (the main bug fix)
+    // catches "   - item" and "	- item" and "- item"
+    .replace(/^[ \t]*[-–]\s+/gm, '• ')
+
+    // Numbered lists — strip leading whitespace only
+    .replace(/^[ \t]*(\d+\.)\s+/gm, '$1 ')
+
+    // ASCII box drawing characters — strip entire line
+    .replace(/^.*[┌┐└┘├┤┬┴┼─│╔╗╚╝║═]+.*$/gm, '')
+
+    // Heavy/double dividers ━━━ ═══ ___ --- === (3+ repeated chars on own line)
+    .replace(/^[ \t]*[━═_\-=]{3,}[ \t]*$/gm, '――――――――――――――――――')
+
+    // Remove leading whitespace from → arrow lines (indented arrows)
+    .replace(/^[ \t]+(→|↳|➜|➡)/gm, '$1')
+
+    // Collapse 3+ blank lines to 2
     .replace(/\n{3,}/g, '\n\n')
+
     .trim()
 }
 
 /**
  * Strips invisible characters that break LinkedIn rendering:
  * zero-width spaces, non-breaking spaces, soft hyphens,
- * Word/Notion copy-paste artifacts, BOM characters.
+ * Word/Notion/ChatGPT copy-paste artifacts, BOM characters.
  */
 export function cleanText(text) {
   return text
-    .replace(/[\u200B\u200C\u200D\uFEFF\u00AD]/g, '')   // zero-width, BOM, soft-hyphen
-    .replace(/\u00A0/g, ' ')                              // non-breaking space → regular space
-    .replace(/[\u2018\u2019]/g, "'")                      // curly single quotes
-    .replace(/[\u201C\u201D]/g, '"')                      // curly double quotes
-    .replace(/\u2026/g, '...')                            // ellipsis character
-    .replace(/\r\n/g, '\n')                               // Windows line endings
-    .replace(/\r/g, '\n')                                 // old Mac line endings
-    .replace(/[ \t]+$/gm, '')                             // trailing whitespace per line
+    .replace(/[\u200B\u200C\u200D\uFEFF\u00AD]/g, '') // zero-width, BOM, soft-hyphen
+    .replace(/\u00A0/g, ' ')                            // non-breaking space → regular
+    .replace(/[\u2018\u2019]/g, "'")                    // curly single quotes
+    .replace(/[\u201C\u201D]/g, '"')                    // curly double quotes
+    .replace(/\u2026/g, '...')                          // ellipsis
+    .replace(/\r\n/g, '\n')                             // Windows line endings
+    .replace(/\r/g, '\n')                               // old Mac line endings
+    .replace(/[ \t]+$/gm, '')                           // trailing whitespace per line
 }
 
 /**

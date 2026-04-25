@@ -24,14 +24,8 @@ export function EditorPage() {
         </div>
 
         <div className={styles.rightCol}>
-          <div className={styles.rightHead}>
-            <span className={styles.rightTitle}>Output</span>
-            <span className={styles.rightSub}>Preview & copy-ready text</span>
-          </div>
-          <div className={styles.rightBody}>
-            <LinkedInPreview userInitial={initial} />
-            <OutputBox />
-          </div>
+          <LinkedInPreview userInitial={initial} />
+          <OutputBox />
         </div>
       </div>
     </div>
